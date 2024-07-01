@@ -1,4 +1,5 @@
 const staticTravelExpensesManager = "travel-expenses-manager-site-v1"
+const assets = []
 
 self.addEventListener("install", installEvent => {
     installEvent.waitUntil(

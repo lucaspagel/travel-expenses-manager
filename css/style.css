@@ -21,4 +21,13 @@ main {
 
 .list-item {
     margin-top: 10px;
+    display: inline-block;
+}
+
+.hidden {
+    display: none;
+}
+
+.visible {
+    display: block;
 }
