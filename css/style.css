@@ -20,7 +20,6 @@ main {
 }
 
 .list-item {
-    margin-top: 10px;
     display: inline-block;
 }
 
@@ -30,4 +29,48 @@ main {
 
 .visible {
     display: block;
+}
+
+input {
+    padding: 0.5rem;
+    border-radius: 5px;
+    border: 1px solid #ccc
+}
+
+select {
+    padding: 0.5rem;
+    border-radius: 5px;
+    border: 1px solid #ccc
+}
+
+#add-button {
+    background-color: dodgerblue;
+    color: white;
+    cursor: pointer;
+    margin-bottom: 1rem;
+
+    padding: 0.5rem;
+    border-radius: 5px;
+    border: 1px solid dodgerblue
+}
+
+.list-item {
+    background-color: #e0e0e0;
+    padding: 0.7rem;
+    border-radius: 0.3rem;
+
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.button-item {
+    cursor: pointer;
+    justify-content: flex-end;
+    margin-left: 3rem;
+}
+
+#totalDiv {
+    padding-top: 1rem;
+    text-align: center;
 }

@@ -12,15 +12,19 @@ function updateDisplay() {
         listItem.textContent = `${item.desc} (Qtd. ${item.quant}): ${item.valor} ${item.sourceCurrency} ==> ${letConvertedTotal} ${item.destCurrency}`;
         expensesList.appendChild(listItem);
     
-        const editButton = document.createElement('button');
-        editButton.textContent = 'Edit';
+        const editButton = document.createElement('img');
+        editButton.className = 'button-item';
+        editButton.src = "assets/edit-image.PNG";
+        editButton.alt = "Editar";
         editButton.onclick = () => editExpense(index);
-        expensesList.appendChild(editButton);
+        listItem.appendChild(editButton);
 
-        const deleteButton = document.createElement('button');
-        deleteButton.textContent = 'Delete';
+        const deleteButton = document.createElement('img');
+        deleteButton.className = 'button-item';
+        deleteButton.src = "assets/delete-image.PNG";
+        deleteButton.alt = "Remover";
         deleteButton.onclick = () => deleteItem(index);
-        expensesList.appendChild(deleteButton);
+        listItem.appendChild(deleteButton);
 
         const lineBreak = document.createElement('br');
         expensesList.appendChild(lineBreak);
@@ -72,7 +76,7 @@ function deleteItem(index) {
     if (confirm(`Deseja deletar item de índice ${index}?`)) {
         expensesArray.splice(index, 1);
         updateDisplay();
-    }    
+    }
 }
 
 function calculateTotal() {    

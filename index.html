@@ -15,6 +15,7 @@
     <main>
         <div>
             <h1>Gestão de Despesas em Viagens</h1>
+            <br>
             <form action="/submit" method="post">
                 <input placeholder="Descrição do Item" type="text" id="desc" name="desc" required>
                 <input placeholder="Quantidade" type="number" id="quant" name="quant" required>
@@ -30,7 +31,7 @@
                     <option value="EUR">EUR</option>
                 </select>
                 <br><br>
-                <button type="button" onclick="handleSubmit(event)">Adicionar</button>
+                <button id="add-button" type="button" onclick="handleSubmit(event)">Adicionar</button>
             </form>
         </div>
         <div id="expensesList"/>
