@@ -1,6 +1,8 @@
 let expensesArray = [];
 let editItem = -1;
 
+calculateTotal()
+
 function updateDisplay() {
     const expensesList = document.getElementById('expensesList');
     expensesList.innerHTML = '';
@@ -80,27 +82,25 @@ function deleteItem(index) {
 }
 
 function calculateTotal() {    
-    if (expensesArray.length > 0) {
-        let sourceTotal = 0;
-        let destTotal = 0;
+    let sourceTotal = 0;
+    let destTotal = 0;
 
-        expensesArray.forEach((item, index) => {
-            sourceTotal += item.quant * item.valor
-            destTotal += item.quant * item.valorConvertido
-        });
+    expensesArray.forEach((item, index) => {
+        sourceTotal += item.quant * item.valor
+        destTotal += item.quant * item.valorConvertido
+    });
 
-        // Drawing the total content
-        const existingDiv = document.getElementById('totalDiv');
-        if (!existingDiv) {
-            const newDiv = document.createElement('div');
-            newDiv.id = 'totalDiv';
-            newDiv.innerHTML = `Total (Moeda de Origem): ${sourceTotal}<br>Total (Moeda de Destino): ${destTotal}`;
-            document.body.appendChild(newDiv);
-        }
-        else {
-            existingDiv.innerHTML = `Total (Moeda de Origem): ${sourceTotal}<br>Total (Moeda de Destino): ${destTotal}`;
-            document.body.appendChild(existingDiv);
-        }
+    // Drawing the total content
+    const existingDiv = document.getElementById('totalDiv');
+    if (!existingDiv) {
+        const newDiv = document.createElement('div');
+        newDiv.id = 'totalDiv';
+        newDiv.innerHTML = `Total (Moeda de Origem): ${sourceTotal}<br>Total (Moeda de Destino): ${destTotal}`;
+        document.body.appendChild(newDiv);
+    }
+    else {
+        existingDiv.innerHTML = `Total (Moeda de Origem): ${sourceTotal}<br>Total (Moeda de Destino): ${destTotal}`;
+        document.body.appendChild(existingDiv);
     }
 }
 
