@@ -10,8 +10,10 @@ function updateDisplay() {
     expensesArray.forEach((item, index) => {
         const listItem = document.createElement('div');
         listItem.className = 'list-item';
-        letConvertedTotal = item.valorConvertido * item.quant
-        listItem.textContent = `${item.desc} (Qtd. ${item.quant}): ${item.valor} ${item.sourceCurrency} ==> ${letConvertedTotal} ${item.destCurrency}`;
+        let convertedTotal = item.valorConvertido * item.quant
+        convertedTotal = Number(convertedTotal.toFixed(2));
+
+        listItem.textContent = `${item.desc} (Qtd. ${item.quant}): ${item.valor} ${item.sourceCurrency} ==> ${convertedTotal} ${item.destCurrency}`;
         expensesList.appendChild(listItem);
     
         const editButton = document.createElement('img');
@@ -54,7 +56,7 @@ async function handleSubmit(event) {
         expensesArray[editItem].desc = desc;
         expensesArray[editItem].quant = quant;
         expensesArray[editItem].valor = valor;
-        expensesArray[editItem].valorConvertido = 0;
+        expensesArray[editItem].valorConvertido = valorConvertido;
         expensesArray[editItem].sourceCurrency = sourceCurrency;
         expensesArray[editItem].destCurrency = destCurrency;
 
@@ -89,6 +91,8 @@ function calculateTotal() {
         sourceTotal += item.quant * item.valor
         destTotal += item.quant * item.valorConvertido
     });
+
+    destTotal = Number(destTotal.toFixed(2));
 
     // Drawing the total content
     const existingDiv = document.getElementById('totalDiv');
